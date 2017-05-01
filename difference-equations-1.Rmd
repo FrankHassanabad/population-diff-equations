@@ -1,9 +1,9 @@
 ---
 title: "Chaos in Population Difference equations"
 output:
-  pdf_document: default
-  html_notebook: default
   html_document: default
+  html_notebook: default
+  pdf_document: default
 ---
 
 Produced by following and tweaking the steps from:
@@ -43,6 +43,7 @@ generations <- 10.0
 Output <- PopGrowth(lambda, N0, generations)
 Output
 ```
+
 \pagebreak
 
 Plotting the Output would be
@@ -69,6 +70,7 @@ N0     <- 3
 Nt     <- (lambda^t) * N0
 Nt
 ```
+
 \pagebreak
 
 The plot looks the same
@@ -77,6 +79,7 @@ plot(t, Nt, type='o', xlab="Time", ylab="Size", main="Exponential Growth",
      pch=16, cex=0.7, fg="grey70", col="steelblue2", col.axis="grey30",
      col.lab="grey30", col.main="grey30", panel.first=grid())
 ```
+
 Logistic Growth is growth with a carrying capacity $K$
 $$
 N_{t+1} = N_t + rN_t(1-[N_t/K])
@@ -108,8 +111,8 @@ plot(0:(generations - 1), Output, type='o', xlab="Time", ylab="Size", main="Logi
      pch=16, cex=0.7, fg="grey70", col="steelblue2", col.axis="grey30", col.lab="grey30",
      col.main="grey30", panel.first=grid())
 ```
-The canocial form of the discrete-time logistic is
 
+The canocial form of the discrete-time logistic is
 $$
 X_{t+1} = rX_t(1-X_t)
 $$
@@ -144,22 +147,27 @@ plot(0:(generations - 1), Xt.1, type='o', xlim=c(200,250), xlab="generations",
      panel.first=grid())
 ```
 
-```{r}
-plot(
-  0:(generations - 1), Xt.2, type='o', xlim=c(200,250), xlab="generations",
-  ylab="population density", main="r set to 3.5", pch=16, cex=0.7, fg="grey70",
-  col="steelblue2", col.axis="grey30", col.lab="grey30", col.main="grey30",
-  panel.first=grid())
-```
+\pagebreak
 
 ```{r}
-plot(
-  0:(generations - 1), Xt.3, type = 'o', xlim=c(200,250), xlab="generations",
-  ylab="population density", main="r set to 3.9", pch=16, cex=0.7, fg="grey70",
-  col="steelblue2", col.axis="grey30", col.lab="grey30", col.main="grey30",
-  panel.first=grid())
+plot(0:(generations - 1), Xt.2, type='o', xlim=c(200,250), xlab="generations",
+     ylab="population density", main="r set to 3.5", pch=16, cex=0.7, fg="grey70",
+     col="steelblue2", col.axis="grey30", col.lab="grey30", col.main="grey30",
+     panel.first=grid())
 ```
 
+\pagebreak
+
+```{r}
+plot(0:(generations - 1), Xt.3, type = 'o', xlim=c(200,250), xlab="generations",
+     ylab="population density", main="r set to 3.9", pch=16, cex=0.7, fg="grey70",
+     col="steelblue2", col.axis="grey30", col.lab="grey30", col.main="grey30",
+     panel.first=grid())
+```
+
+\pagebreak
+
+Bifurcation of growth parameter r
 ```{r}
 minr        <- 2.5
 maxr        <- 4.0
@@ -169,7 +177,7 @@ ttransients <- 100
 trange      <- 400
 
 plot(c(minr, maxr), c(0,1), type="n", pch=".", xlab="Growth Parameter r",
-  ylab="400 generations", main="Bifurcation of population", fg="grey70",
+  ylab="population density", main="Bifurcation of population", fg="grey70",
   col="steelblue2", col.axis="grey30", col.lab="grey30", col.main="grey30",
   panel.first=grid())
 
